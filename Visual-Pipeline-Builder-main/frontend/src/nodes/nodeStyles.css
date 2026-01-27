@@ -1,0 +1,128 @@
+.base-node {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  min-width: 180px;
+  position: relative;
+}
+
+.base-node:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.node-header {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  color: white;
+  padding: 12px 16px;
+  font-weight: 600;
+  border-radius: 12px 12px 0 0;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.node-body {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.node-body label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.node-body input,
+.node-body select,
+.node-body textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 4px;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.node-body input:focus,
+.node-body select:focus,
+.node-body textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.node-body textarea {
+  resize: none;
+  min-height: 60px;
+}
+
+.node-handle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.node-handle-input {
+  background: #ef4444;
+}
+
+.node-handle-input:hover {
+  background: #dc2626;
+  transform: scale(1.2);
+}
+
+.node-handle-output {
+  background: #10b981;
+}
+
+.node-handle-output:hover {
+  background: #059669;
+  transform: scale(1.2);
+}
+
+/* Node type specific styles */
+.input-node {
+  border-color: #3b82f6;
+}
+
+.output-node {
+  border-color: #10b981;
+}
+
+.text-node {
+  border-color: #f59e0b;
+}
+
+.llm-node {
+  border-color: #8b5cf6;
+}
+
+.math-node {
+  border-color: #ef4444;
+}
+
+.delay-node {
+  border-color: #6b7280;
+}
+
+.merge-node {
+  border-color: #06b6d4;
+}
+
+.logger-node {
+  border-color: #84cc16;
+}
+
+.api-node {
+  border-color: #f97316;
+}
