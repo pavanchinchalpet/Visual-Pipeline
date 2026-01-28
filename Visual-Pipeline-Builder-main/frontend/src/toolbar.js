@@ -7,13 +7,14 @@ export const PipelineToolbar = () => {
     return (
         <div style={{ 
             padding: '24px',
-            background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-            borderBottom: '2px solid #e5e7eb',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+            background: 'var(--bg-secondary, #f8fafc)',
+            borderBottom: '2px solid var(--border-color, #e5e7eb)',
+            boxShadow: '0 4px 6px -1px var(--shadow-color, rgba(0, 0, 0, 0.1))',
+            transition: 'background-color 0.3s ease, border-color 0.3s ease'
         }}>
             <h3 style={{ 
                 margin: '0 0 20px 0', 
-                color: '#1f2937',
+                color: 'var(--text-primary, #1f2937)',
                 fontSize: '24px',
                 fontWeight: '700',
                 textAlign: 'center',
@@ -25,7 +26,7 @@ export const PipelineToolbar = () => {
             <div style={{ marginBottom: '20px' }}>
                 <h4 style={{ 
                     margin: '0 0 12px 0', 
-                    color: '#374151',
+                    color: 'var(--text-secondary, #374151)',
                     fontSize: '16px',
                     fontWeight: '600',
                     display: 'flex',
@@ -51,7 +52,7 @@ export const PipelineToolbar = () => {
             <div>
                 <h4 style={{ 
                     margin: '0 0 12px 0', 
-                    color: '#374151',
+                    color: 'var(--text-secondary, #374151)',
                     fontSize: '16px',
                     fontWeight: '600',
                     display: 'flex',

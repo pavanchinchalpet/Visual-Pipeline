@@ -104,7 +104,8 @@ export const PipelineUI = () => {
             width: '100vw', 
             height: '75vh', 
             position: 'relative',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            background: 'var(--bg-secondary, #f9fafb)',
+            transition: 'background-color 0.3s ease'
         }}>
             <ReactFlow
                 nodes={nodes}
@@ -121,7 +122,7 @@ export const PipelineUI = () => {
                 connectionLineType='smoothstep'
             >
                 <Background 
-                    color="#ffffff" 
+                    color="var(--text-secondary, #374151)" 
                     gap={gridSize} 
                     style={{ opacity: 0.1 }}
                 />

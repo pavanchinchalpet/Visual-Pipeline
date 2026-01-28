@@ -57,7 +57,9 @@ Valid DAG: ${dagStatus}`);
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
-            padding: '20px'
+            padding: '20px',
+            background: 'var(--bg-secondary, #f9fafb)',
+            transition: 'background-color 0.3s ease'
         }}>
             <button 
                 type="button"
