@@ -5,18 +5,14 @@ import { SubmitButton } from './submit';
 import { ThemeToggle } from './ThemeToggle';
 import { ActionButtons } from './ActionButtons';
 import { ToastManager } from './ToastManager';
-import { useKeyboardShortcuts } from './useKeyboardShortcuts';
 
 function App() {
-  // Enable keyboard shortcuts
-  useKeyboardShortcuts();
-
   return (
     <div>
-      <ActionButtons />
       <ThemeToggle />
       <PipelineToolbar />
       <ReactFlowProvider>
+        <ActionButtons />
         <PipelineUI />
         <SubmitButton />
       </ReactFlowProvider>

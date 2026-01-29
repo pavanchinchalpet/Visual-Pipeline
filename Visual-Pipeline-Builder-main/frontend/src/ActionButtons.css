@@ -1,43 +1,54 @@
+/* =========================
+   Action Buttons Container
+   ========================= */
 .action-buttons {
   position: fixed;
   top: 20px;
   right: 80px;
   z-index: 1000;
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
 }
 
+/* =========================
+   Base Action Button
+   ========================= */
 .action-btn {
   background: var(--bg-primary, #ffffff);
-  border: 1px solid var(--border-color, #e5e7eb);
+  border: 2px solid var(--border-color, #e5e7eb);
   border-radius: 8px;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: var(--text-primary, #111827);
+  color: var(--text-primary, #111827); /* controls SVG via currentColor */
   box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
 }
 
-.action-btn:hover:not(.disabled) {
+/* Ensure SVG icons inherit color */
+.action-btn svg {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* =========================
+   Hover / Active / Focus
+   ========================= */
+.action-btn:hover {
   background: var(--bg-secondary, #f9fafb);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--shadow-hover, rgba(0, 0, 0, 0.15));
+  border-color: var(--focus-color, #3b82f6);
 }
 
-.action-btn:active:not(.disabled) {
+.action-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px var(--shadow-color, rgba(0, 0, 0, 0.1));
-}
-
-.action-btn.disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  color: var(--text-secondary, #6b7280);
 }
 
 .action-btn:focus {
@@ -45,15 +56,31 @@
   outline-offset: 2px;
 }
 
-/* Clear button specific styling */
+/* =========================
+   Lock Button State
+   ========================= */
+.action-btn.locked {
+  background: #fbbf24;
+  color: #ffffff;
+  border-color: #f59e0b;
+}
+
+.action-btn.locked:hover {
+  background: #f59e0b;
+  border-color: #d97706;
+}
+
+/* =========================
+   Clear Button
+   ========================= */
 .clear-btn {
   width: auto;
-  padding: 0 16px;
+  padding: 0 12px;
   background: #ef4444;
-  color: white;
+  color: #ffffff;
   border-color: #dc2626;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .clear-btn:hover {
@@ -71,20 +98,49 @@
   white-space: nowrap;
 }
 
-/* Dark theme adjustments */
+/* =========================
+   Dark Theme Overrides
+   ========================= */
 [data-theme="dark"] .action-btn {
   background: var(--bg-primary);
   border-color: var(--border-color);
-  color: var(--text-primary);
+  color: #e5e7eb; /* 🔥 FIX: icons become visible */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .action-btn:hover:not(.disabled) {
+/* Ensure SVG icons are bright in dark mode */
+[data-theme="dark"] .action-btn svg {
+  stroke: #e5e7eb;
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .action-btn:hover {
   background: var(--bg-secondary);
+  border-color: var(--focus-color);
+  color: #ffffff; /* brighter on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .action-btn:hover svg {
+  stroke: #ffffff;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .action-btn.locked {
+  background: #fbbf24;
+  color: #1f2937;
+  border-color: #f59e0b;
+}
+
+[data-theme="dark"] .action-btn.locked svg {
+  stroke: #1f2937;
+  color: #1f2937;
 }
 
 [data-theme="dark"] .clear-btn {
   background: #dc2626;
   border-color: #b91c1c;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .clear-btn:hover {
@@ -92,19 +148,22 @@
   border-color: #991b1b;
 }
 
-/* Responsive design */
+/* =========================
+   Responsive Design
+   ========================= */
 @media (max-width: 768px) {
   .action-buttons {
-    gap: 8px;
+    gap: 6px;
+    right: 70px;
   }
-  
+
   .action-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
-  
+
   .clear-btn {
-    padding: 0 12px;
-    font-size: 12px;
+    padding: 0 10px;
+    font-size: 11px;
   }
 }
